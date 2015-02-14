@@ -2,3 +2,23 @@ timezone: America/Chicago
 
 # Use Pygments
 highlighter: pygments
+
+exclude: ["cheat_sheet","wynnd_blog.sublime-project","wynnd_blog.sublime-workspace","README.md"]
+
+timezone: America/Chicago
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      author: "Wynn Drahorad"
+      layout: "post"
+      published: "true"
+  -
+    scope:
+      path: "index.html"
+    values:
+      title: "Home"
+      layout: "home"

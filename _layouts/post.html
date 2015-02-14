@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{page.title}} - Wynn Drahorad</title>
+		<link rel="stylesheet" src="css/style.css">
+	</head>
+
+	<body>
+		<div class="post-head">
+			<h2 class="title left">{{ page.title }}</h2>
+			<span class="head-date right">{{ post.date | date: "%Y-%m-%d" }}</span>
+		</div>
+
+		{{ content }}
+
+	</body>
+
+</html>
