@@ -1,34 +1,43 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>{{ page.title }} - Wynn Drahorad</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="css/clear.css">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
+{% include header.html %}
+		<div class="main">
+			<div class="recents-wrap right">
 
-	<body>
-		<div class="wrap">
-			<h1 class="centered">Hello. I am <a href="{{page.url}}">Wynn Drahorad</a>.</h1>
-			<h2 class="centered">Welcome to my blog.</h2>
-
-
-			<div>
-				<h3 class="">Recent Posts</h3>
 				<!-- begin listing posts -->
-				<ul class="recents">
-					{% for post in site.posts %}
-					<li class="recent-post">
-						<div class="recent-post-head">
-							<h3 class="left"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-							<p class="date right">{{ post.date | date: "%Y-%m-%d" }}</p>
-						</div>
-						<p class="excerpt">{{ post.excerpt }}</p>
-					</li>
-					{% endfor %}
-				</ul>
+				{% for post in site.posts %}
+				<article class="recent-post">
+					<div class="recent-post-head">
+						<h2 class="left post-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+						<p class="date right">{{ post.date | date: "%Y-%m-%d" }}</p>
+					</div>
+					{{ post.content }}
+				</article>
+				{% endfor %}
+
 			</div>
+			<!-- end recent posts -->
 		</div>
+
+		<aside class="side-menu left">
+			<h4 class="aside-label">Recent Posts</h4>
+			<ul>
+				{% for post in site.posts %}
+				<li class="menu-recent">
+					<div>
+
+						{% if post.url != page.url %}
+
+						<a href="{{ post.url}}">{{ post.title }}</a>
+						<span class="right">{{ post.date | date: "%m-%d" }}</span>
+						{% else %}
+						
+						{{ post.title }}
+						<span class="right">{{ post.date | date: "%m-%d" }}</span>
+						{% endif %}
+
+
+				</li>
+				{% endfor %}
+		</aside>
 	</body>
 
 </html>
